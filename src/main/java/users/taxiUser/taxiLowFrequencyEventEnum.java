@@ -1,0 +1,122 @@
+package users.taxiUser;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+public enum taxiLowFrequencyEventEnum {
+
+    QI(591),
+    HK(573),
+    IE(548),
+    NX(540),
+    AO(535),
+    CD(512),
+    XJ(499),
+    EN(476),
+    GV(466),
+    NV(455),
+    CR(454),
+    OJ(446),
+    NK(444),
+    ZT(429),
+    TU(416),
+    BD(402),
+    XI(394),
+    YO(393),
+    ZF(393),
+    LP(385),
+    IL(369),
+    YW(367),
+    XO(352),
+    WJ(349),
+    DS(348),
+    BM(333),
+    WL(330),
+    WM(323),
+    PL(316),
+    KS(315),
+    UV(314),
+    TV(314),
+    EX(314),
+    AJ(306),
+    IH(303),
+    MU(302),
+    GI(301),
+    CP(298),
+    AK(290),
+    ND(283),
+    AZ(282),
+    ZC(269),
+    UO(263),
+    VI(260),
+    WV(238),
+    ME(233),
+    HP(214),
+    EU(210),
+    EH(209),
+    KL(205),
+    ZD(204),
+    QW(203),
+    AR(200),
+    HN(191),
+    XH(182),
+    QD(180),
+    PS(180),
+    QP(174),
+    PH(174),
+    WN(169),
+    WB(165),
+    PX(161),
+    EO(161),
+    NE(160),
+    KR(151),
+    OC(148),
+    ZR(142),
+    QC(135),
+    BF(113),
+    MZ(99),
+    JE(67),
+    FH(58),
+    TY(55),
+    OP(48),
+    UM(45),
+    VP(39),
+    IK(33),
+    XW(32),
+    TR(31),
+    FJ(30),
+    BV(28),
+    RJ(25),
+    YA(25),
+    EJ(24),
+    JH(23),
+    EZ(20),
+    PI(18),
+    IJ(16),
+    RP(15),
+    IV(13),
+    JV(8),
+    YJ(7),
+    KY(7),
+    FL(5),
+    VC(5),
+    SV(5),
+    EV(4),
+    KX(2),
+    XL(1),
+    SF(1);
+
+    public Integer frequency;
+    private static final List<taxiLowFrequencyEventEnum> VALUES =
+            Collections.unmodifiableList(Arrays.asList(values()));
+
+    private static final int SIZE = VALUES.size();
+
+    private static final Random RANDOM = new Random();
+
+    taxiLowFrequencyEventEnum(int frequency) {
+        this.frequency = frequency;
+    }
+}

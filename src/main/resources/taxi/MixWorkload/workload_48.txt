@@ -1,0 +1,336 @@
+q0
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(WF, HB,NX,AO,CD, MQ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q1
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(SEQ(HB,SEQ(NX,AO,CD,XJ,EN,GV,NV,CR)+,OJ)+, NK,LE)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q2
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(LX, HB,NX,AO,CD, FZ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q3
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(SEQ(HB,SEQ(IE,NX,AO,CD,XJ,EN,GV,NV)+,CR)+, OJ,WK)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q4
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(MK, HB,QI,HK,IE, SY)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q5
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(SEQ(HB,SEQ(HK,IE,NX,AO,CD,XJ,EN,GV)+,NV)+, CR,NO)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q6
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(SY, HB,NX,AO,CD, EG)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q7
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(SEQ(HB,SEQ(QI,HK,IE,NX,AO,CD,XJ,EN)+,GV)+, NV,QU)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q8
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(SO, HB,NX,AO,CD, NR)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q9
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(YF, HB,NX,AO,CD, OM)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q10
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(AQ, HB,HK,IE,NX, MK)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q11
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(OK, HB,IE,NX,AO, CW)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q12
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(MN, HB,IE,NX,AO, XQ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q13
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(GJ, HB,IE,NX,AO, OM)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q14
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(HR, HB,HK,IE,NX, OZ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q15
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(SEQ(HB,SEQ(QI,HK,IE,NX,AO,CD,XJ,EN)+,GV)+, NV,RH)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q16
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(VF, HB,QI,HK,IE, VL)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q17
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(UL, HB,IE,NX,AO, VL)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q18
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(MK, HB,IE,NX,AO, VX)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q19
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(ES, HB,QI,HK,IE, SO)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q20
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(LI, HB,QI,HK,IE, JB)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q21
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(MI, HB,QI,HK,IE, FK)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q22
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(RI, HB,IE,NX,AO, TG)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q23
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(YL, HB,IE,NX,AO, MI)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q24
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(EK, HB,QI,HK,IE, MT)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q25
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(YH, HB,QI,HK,IE, ZM)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q26
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(ZK, HB,HK,IE,NX, OM)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q27
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(SEQ(HB,SEQ(IE,NX,AO,CD,XJ,EN,GV,NV)+,CR)+, OJ,XQ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q28
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(SEQ(HB,SEQ(NX,AO,CD,XJ,EN,GV,NV,CR)+,OJ)+, NK,VB)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q29
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(YF, HB,HK,IE,NX, RI)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q30
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(EA, HB,NX,AO,CD, MG)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q31
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(DC, HB,HK,IE,NX, VF)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q32
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(TB, HB,QI,HK,IE, CW)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q33
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(FZ, HB,HK,IE,NX, QU)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q34
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(OX, HB,HK,IE,NX, NR)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q35
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(HM, HB,HK,IE,NX, YU)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q36
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(KH, HB,IE,NX,AO, NO)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q37
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(WE, HB,NX,AO,CD, LV)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q38
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(MQ, HB,HK,IE,NX, LX)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q39
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(DB, HB,NX,AO,CD, FV)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q40
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(SEQ(HB,SEQ(HK,IE,NX,AO,CD,XJ,EN,GV)+,NV)+, CR,KH)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q41
+RETURN HB.VendorID, AVG(HB.total_amount)
+PATTERN SEQ(DB, HB,IE,NX,AO, LZ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 15 min SLIDE 5 min
+
+q42
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(VB, HB,QI,HK,IE, OK)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q43
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(MK, HB,NX,AO,CD, WZ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
+q44
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(FV, HB,QI,HK,IE, YU)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 20 min SLIDE 5 min
+
+q45
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(RS, HB,NX,AO,CD, PQ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q46
+RETURN HB.VendorID, COUNT(*)
+PATTERN SEQ(SO, HB,HK,IE,NX, XQ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 10 min SLIDE 5 min
+
+q47
+RETURN HB.VendorID, SUM(HB.total_amount)
+PATTERN SEQ(EY, HB,IE,NX,AO, AQ)
+WHERE HB.trip_distance > 1
+GROUP-BY HB.VendorID
+WITHIN 5 min SLIDE 5 min
+
