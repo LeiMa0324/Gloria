@@ -75,7 +75,6 @@ public class nestedKleeneWorkloadGenerator extends WorkloadGenerator {
             String prefix = "";
             String suffix = suffix_first+","+randomHigh(availableHighs);
 
-
             String query = createQuery(prefix, suffix, k_pattern, predEventType, preAggregator);
             this.candidateQueries.add(query);
             System.out.println("\n");

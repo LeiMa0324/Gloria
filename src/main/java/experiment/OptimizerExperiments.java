@@ -58,8 +58,11 @@ public class OptimizerExperiments {
                         greedy_analyzer.getOptimizeTime()+"",
                         greedy_analyzer.getMemory()+"",
                 };
-
-                logging(this.dataset+"_varyQueryNum", data);
+                String[] header = {"QueryNum","K_length","K_layers","iter",
+                        "NoPrune Optimizer","NoPrune Memory",
+                        "Normal Optimizer", "Normal Memory",
+                        "Greedy Optimizer","Greedy Memory"};
+                logging(this.dataset+"_varyQueryNum", header, data);
             }
         }
     }
@@ -105,7 +108,11 @@ public class OptimizerExperiments {
                         greedy_analyzer.getMemory()+""
                         };
 
-                logging(this.dataset+"_varyKleeneLength", data);
+                String[] header = {"QueryNum","K_length","K_layers","iter",
+                        "NoPrune Optimizer","NoPrune Memory",
+                        "Normal Optimizer", "Normal Memory",
+                        "Greedy Optimizer","Greedy Memory"};
+                logging(this.dataset+"_varyKleeneLength", header, data);
             }
         }
     }
@@ -151,7 +158,12 @@ public class OptimizerExperiments {
                         greedy_analyzer.getMemory()+""
                 };
 
-                logging(this.dataset+"_varyKleeneLayers", data);
+                String[] header = {"QueryNum","K_length","K_layers","iter",
+                        "NoPrune Optimizer","NoPrune Memory",
+                        "Normal Optimizer", "Normal Memory",
+                        "Greedy Optimizer","Greedy Memory"};
+
+                logging(this.dataset+"_varyKleeneLayers",header, data);
             }
         }
     }
@@ -202,18 +214,68 @@ public class OptimizerExperiments {
                         greedy_analyzer.getOptimizeTime()+"",
                         greedy_analyzer.getMemory()+""
                 };
+                String[] header = {"QueryNum","K_length","K_layers","iter",
+                        "NoPrune Optimizer","NoPrune Memory",
+                        "Normal Optimizer", "Normal Memory",
+                        "Greedy Optimizer","Greedy Memory"};
 
-                logging(this.dataset+"_mixWorkload_varyQueryNum", data);
+                logging(this.dataset+"_mixWorkload_varyQueryNum",header, data);
             }
         }
     }
 
-    public void logging(String expName, String[] data){
+    public void mixWorkload_varyKRatio(){
+        int K_length = 10;
+        int Kleene_layers= 2;
+        for (double k_ratio = 0.1; k_ratio<0.7; k_ratio+=0.1){
 
-        String[] header = {"QueryNum","K_length","K_layers","iter",
-                "NoPrune Optimizer","NoPrune Memory",
-                "Normal Optimizer", "Normal Memory",
-                "Greedy Optimizer","Greedy Memory"};
+            for (int iter = 0; iter < iterNum; iter++) {
+                String workloadPath = "src/main/resources/"+dataset+"/MixWorkload/kleeneRatio/workload_"+(int)(k_ratio*10)+".txt";
+
+                System.out.println("Workload File: "+"workload"+(int)(k_ratio*10)+".txt");
+
+                System.out.printf("\n==============NONPRUNE ANALYZER BEGIN!=================\n");
+                WorkloadAnalyzer noprune_analyzer = new WorkloadAnalyzer(new DatasetSchema(dataset));
+                noprune_analyzer.setType(OptimizerType.NOPRUNE);
+                noprune_analyzer.analyzeAndOptimize(workloadPath);
+                System.out.printf("\n==============NONPRUNE ANALYZER END!=================\n");
+
+
+
+                System.out.printf("\n==============NORMAL ANALYZER BEGIN!=================\n");
+                WorkloadAnalyzer normal_analyzer = new WorkloadAnalyzer(new DatasetSchema(dataset));
+                normal_analyzer.setType(OptimizerType.NORMAL);
+                normal_analyzer.analyzeAndOptimize(workloadPath);
+                System.out.printf("\n==============NORMAL ANALYZER END!=================\n\n");
+
+
+                System.out.printf("==============GREEDY ANALYZER BEGIN!=================\n");
+                WorkloadAnalyzer greedy_analyzer = new WorkloadAnalyzer(new DatasetSchema(dataset));
+                greedy_analyzer.setType(OptimizerType.GREEDY);
+                greedy_analyzer.analyzeAndOptimize(workloadPath);
+
+                System.out.printf("\n==============GREEDY ANALYZER END!=================\n");
+
+                String[] header = {"QueryNum","K_ratio","iter",
+                        "NoPrune Optimizer",
+                        "Normal Optimizer",
+                        "Greedy Optimizer"};
+
+                String[] data = {50+"", k_ratio+"", iter+"",
+                        noprune_analyzer.getOptimizeTime()+"",
+                        normal_analyzer.getOptimizeTime()+"",
+                        greedy_analyzer.getOptimizeTime()+"",
+                };
+
+
+                logging(this.dataset+"_mixWorkload_varyKRatio", header, data);
+            }
+        }
+    }
+
+    public void logging(String expName, String[] header, String[] data){
+
+
         String logFile = expName+".csv";
         File file = new File("output/"+ logFile);
         writeCSV(file, header, data);
