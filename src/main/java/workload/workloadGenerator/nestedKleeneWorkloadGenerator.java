@@ -1,11 +1,8 @@
-package workload;
+package workload.workloadGenerator;
 
 import base.DatasetSchema;
-import users.stockUser.stockHighFrequencyEventTypeEnum;
-import users.stockUser.stockLowFrequencyEventTypeEnum;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class nestedKleeneWorkloadGenerator extends WorkloadGenerator {
 

@@ -1,7 +1,7 @@
 package experiment;
 
 import base.DatasetSchema;
-import workload.MixWorkloadGenerator;
+import workload.workloadGenerator.MixWorkloadGenerator;
 
 public class workloadGeneratorTest {
     public static void main(String[] args){

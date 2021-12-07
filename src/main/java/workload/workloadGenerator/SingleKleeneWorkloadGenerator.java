@@ -1,15 +1,12 @@
-package workload;
+package workload.workloadGenerator;
 
 import base.DatasetSchema;
 import lombok.Data;
-import users.stockUser.stockHighFrequencyEventTypeEnum;
-import users.stockUser.stockLowFrequencyEventTypeEnum;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @Data
-public class SingleKleeneWorkloadGenerator extends WorkloadGenerator{
+public class SingleKleeneWorkloadGenerator extends WorkloadGenerator {
 
 
     public SingleKleeneWorkloadGenerator(DatasetSchema schema) {

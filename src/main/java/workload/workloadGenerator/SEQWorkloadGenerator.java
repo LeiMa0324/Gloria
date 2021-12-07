@@ -1,18 +1,12 @@
-package workload;
+package workload.workloadGenerator;
 
 import base.DatasetSchema;
 import lombok.Data;
-import users.stockUser.stockHighFrequencyEventTypeEnum;
-import users.stockUser.stockLowFrequencyEventTypeEnum;
-import users.taxiUser.taxiHighFrequencyEventEnum;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.IllegalFormatCodePointException;
 
 @Data
-public class SEQWorkloadGenerator<T> extends WorkloadGenerator{
+public class SEQWorkloadGenerator<T> extends WorkloadGenerator {
 
     public SEQWorkloadGenerator(DatasetSchema schema) {
         super(schema);

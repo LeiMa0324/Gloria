@@ -2,7 +2,10 @@ package experiment;
 
 import base.DatasetSchema;
 import lombok.Data;
-import workload.*;
+import workload.workloadGenerator.MixWorkloadGenerator;
+import workload.workloadGenerator.SEQWorkloadGenerator;
+import workload.workloadGenerator.SingleKleeneWorkloadGenerator;
+import workload.workloadGenerator.nestedKleeneWorkloadGenerator;
 
 import java.util.ArrayList;
 

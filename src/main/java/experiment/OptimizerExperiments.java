@@ -5,7 +5,6 @@ import com.opencsv.CSVWriter;
 import gloriaOptimizer.graph.OptimizerType;
 import lombok.Data;
 import workload.WorkloadAnalyzer;
-import workload.WorkloadGenerator;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,8 +14,6 @@ import java.io.IOException;
 public class OptimizerExperiments {
     private String dataset;
     private int iterNum= 16;
-
-
 
     public void SEQ_varyQueryNum(){
 

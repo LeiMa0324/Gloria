@@ -1,8 +1,7 @@
-package workload;
+package workload.workloadGenerator;
 
 import base.DatasetSchema;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package workload;
+package workload.workloadGenerator;
 
 import base.DatasetSchema;
 import lombok.Data;
