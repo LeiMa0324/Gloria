@@ -59,7 +59,7 @@ HAMLET, GRETA
 
 ### 4.Execution
 
-
+simply run the main class in the experiment package, it will run all the optimizer and executor experiments and output the results in the output directory.
 
  In each of these experiments, we run the models varying query num or events per window. For one setting, we run them several iterations and log the results of latency, throughput, memory and other details.
  
