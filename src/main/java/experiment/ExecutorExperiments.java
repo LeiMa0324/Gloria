@@ -1,12 +1,12 @@
 package experiment;
 
-import base.DatasetSchema;
-import gloriaExecutor.Executor;
-import gloriaOptimizer.Workload;
-import gloriaOptimizer.graph.OptimizerType;
+import gloria.base.DatasetSchema;
+import gloria.gloriaExecutor.Executor;
+import gloria.gloriaOptimizer.Workload;
+import gloria.gloriaOptimizer.graph.OptimizerType;
 import lombok.Data;
-import stream.streamLoader;
-import workload.WorkloadAnalyzer;
+import gloria.stream.streamLoader;
+import gloria.workload.WorkloadAnalyzer;
 
 import java.io.File;
 

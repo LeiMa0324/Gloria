@@ -1,11 +1,11 @@
 package experiment;
 
-import base.DatasetSchema;
+import gloria.base.DatasetSchema;
 import lombok.Data;
-import workload.workloadGenerator.MixWorkloadGenerator;
-import workload.workloadGenerator.SEQWorkloadGenerator;
-import workload.workloadGenerator.SingleKleeneWorkloadGenerator;
-import workload.workloadGenerator.nestedKleeneWorkloadGenerator;
+import gloria.workload.workloadGenerator.MixWorkloadGenerator;
+import gloria.workload.workloadGenerator.SEQWorkloadGenerator;
+import gloria.workload.workloadGenerator.FlatKleeneWorkloadGenerator;
+import gloria.workload.workloadGenerator.nestedKleeneWorkloadGenerator;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class WorkloadGeneration {
         ArrayList<String> seqkeys = new ArrayList<>();
         ArrayList<String> candidateQueries = new ArrayList<>();
 
-        //vary query num
+        //vary gloria.query num
         double K_percent = 0.0;
         for (int groupNum = 2; groupNum<21; groupNum+=2){
             SEQWorkloadGenerator generator = new SEQWorkloadGenerator(schema);
@@ -34,11 +34,11 @@ public class WorkloadGeneration {
 
     public void Single_varyKleeneLength(){
 
-        //vary query num
+        //vary gloria.query num
         int queryNum = 100;
-        for (int K_length = 1; K_length<11; K_length+=1){
+        for (int K_length = 1; K_length<2; K_length+=1){
             DatasetSchema schema = new DatasetSchema(dataset);
-            SingleKleeneWorkloadGenerator generator = new SingleKleeneWorkloadGenerator(schema);
+            FlatKleeneWorkloadGenerator generator = new FlatKleeneWorkloadGenerator(schema);
             generator.generate(queryNum/10, 10, K_length);
 
 
@@ -48,7 +48,7 @@ public class WorkloadGeneration {
 
     public void neste_varyKleeneLayers(){
 
-        //vary query num
+        //vary gloria.query num
         int queryNum = 100;
         for (int nestedLayers = 1; nestedLayers<6; nestedLayers+=1){
             DatasetSchema schema = new DatasetSchema(dataset);

@@ -1,11 +1,11 @@
 package experiment;
 
-import base.DatasetSchema;
-import gloriaExecutor.Executor;
-import gloriaOptimizer.Workload;
-import gloriaOptimizer.graph.OptimizerType;
-import stream.streamLoader;
-import workload.WorkloadAnalyzer;
+import gloria.base.DatasetSchema;
+import gloria.gloriaExecutor.Executor;
+import gloria.gloriaOptimizer.Workload;
+import gloria.gloriaOptimizer.graph.OptimizerType;
+import gloria.stream.streamLoader;
+import gloria.workload.WorkloadAnalyzer;
 
 public class SEQexecutorTest {
 

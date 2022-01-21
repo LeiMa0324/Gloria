@@ -1,10 +1,10 @@
 package experiment;
 
-import base.DatasetSchema;
+import gloria.base.DatasetSchema;
 import com.opencsv.CSVWriter;
-import gloriaOptimizer.graph.OptimizerType;
+import gloria.gloriaOptimizer.graph.OptimizerType;
 import lombok.Data;
-import workload.WorkloadAnalyzer;
+import gloria.workload.WorkloadAnalyzer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -174,7 +174,7 @@ public class OptimizerExperiments {
             for (int iter = 0; iter < iterNum; iter++) {
                 String workloadPath = "src/main/resources/"+dataset+"/MixWorkload/workload_"+queryNum*12+".txt";
 
-                System.out.println("Workload File: "+"workload"+queryNum+".txt");
+                System.out.println("Workload File: "+ "gloria/workload" +queryNum+".txt");
 
                 System.out.printf("\n==============NONPRUNE ANALYZER BEGIN!=================\n");
                 WorkloadAnalyzer noprune_analyzer = new WorkloadAnalyzer(new DatasetSchema(dataset));
@@ -229,7 +229,7 @@ public class OptimizerExperiments {
             for (int iter = 0; iter < iterNum; iter++) {
                 String workloadPath = "src/main/resources/"+dataset+"/MixWorkload/kleeneRatio/workload_"+(int)(k_ratio*10)+".txt";
 
-                System.out.println("Workload File: "+"workload"+(int)(k_ratio*10)+".txt");
+                System.out.println("Workload File: "+ "gloria/workload" +(int)(k_ratio*10)+".txt");
 
                 System.out.printf("\n==============NONPRUNE ANALYZER BEGIN!=================\n");
                 WorkloadAnalyzer noprune_analyzer = new WorkloadAnalyzer(new DatasetSchema(dataset));
