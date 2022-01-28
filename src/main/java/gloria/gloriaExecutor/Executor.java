@@ -60,28 +60,21 @@ public class Executor {
 
         for (Event event: this.workload.getSubstream()){
 
-            long s1 = System.currentTimeMillis();
             Event lastE = this.predecessorManager.findLatestSameEventWithSamePredicate(event);
-            long s2 = System.currentTimeMillis();
 
             for (Node p_node: searchSharingPlansOfIncomingEdge(event)){
                 applyPNodeSharingPlan(event, p_node,  lastE);
             }
-            long s3 = System.currentTimeMillis();
 
 
             for (Node s_node: searchSharingPlansOfOutgoingEdge(event)){
                 applySNodeSharingPlan(event, s_node, lastE);
             }
 
-            long s4 = System.currentTimeMillis();
-
-
             finalValueProcess(event);
             ArrayList<Event> events = this.predecessorManager.storedEvents.getOrDefault(event.getType().getName(), new ArrayList<>());
             events.add(event);
             this.predecessorManager.storedEvents.put(event.getType().getName(), events);
-            long s5 = System.currentTimeMillis();
 
 
         }
@@ -275,7 +268,6 @@ public class Executor {
                 expr.sum(lastE_expr);
             }
         }
-        long quarter = System.currentTimeMillis();
 
         //if E+, lastE's value should be doubled
         boolean isSelfKleene = event.getType().isSelfKleene();
