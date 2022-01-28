@@ -50,7 +50,10 @@ src/main/resources/bus(stock/taxi) contains the stream file and workloads of the
 ## 3.Experiment
 
 OptimizerExperiments class contains all the experiments of optimizers
+
 ExecutorExperiments class contains all the experiments of executors
+
+GloriaVSHamletExperiments class contains all the experiments of Gloria vs. Hamlet
 
 ## 4.Output
 

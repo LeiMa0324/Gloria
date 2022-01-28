@@ -110,4 +110,19 @@ public class ExecutorExperiments extends OptimizerExperiments{
         File file = new File(logFile);
         writeCSV(file, header, data);
     }
+
+    public static void main(){
+
+        ExecutorExperiments stock_exp = new ExecutorExperiments();
+        stock_exp.setDataset("stock");
+        stock_exp.varyQueryNum();
+
+        ExecutorExperiments bus_exp = new ExecutorExperiments();
+        bus_exp.setDataset("bus");
+        bus_exp.varyQueryNum();
+
+        ExecutorExperiments taxi_exp = new ExecutorExperiments();
+        taxi_exp.setDataset("taxi");
+        taxi_exp.varyQueryNum();
+    }
 }
