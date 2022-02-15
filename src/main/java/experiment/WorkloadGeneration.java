@@ -56,7 +56,6 @@ public class WorkloadGeneration {
 
             generator.generate(queryNum/10, 10, nestedLayers);
 
-            //todo: longer the seq patterns, make normal more complicated
             generator.toFile("src/main/resources/"+dataset+"/KleeneWorkload/kleeneLayers/workload_"+nestedLayers+".txt");
         }
     }

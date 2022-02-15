@@ -16,7 +16,7 @@ public class PathSearcher {
         this.path = new Path();
 
     }
-//TODO: DISTINGUISH KLEENE GRAPH VS SEQ GRAPH
+
     public Path pathSearch(Graph graph){
 
         if (hasOnePath(graph)){

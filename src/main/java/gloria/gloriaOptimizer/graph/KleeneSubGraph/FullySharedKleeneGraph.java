@@ -199,7 +199,10 @@ public class FullySharedKleeneGraph extends Graph {
 
         Path path = new Path();
         this.pools.forEach((k,v)->{
-            path.getNodeHashMap().put(k, v.getNodeHash().values().iterator().next());
+            if (v.getNodeHash().values().iterator().hasNext()){
+                path.getNodeHashMap().put(k, v.getNodeHash().values().iterator().next());
+            }
+
         });
 
         this.cycleSharingPaths.add(path);
@@ -218,7 +221,7 @@ public class FullySharedKleeneGraph extends Graph {
 
         Pool pool = this.pools.getOrDefault(edge.toString(), new Pool_SinglePred(edge));
         pool.setType(this.type);
-        //todo: assuming only single pre pools
+        //assuming only single pre pools
         Pool p_pool = this.pools.get(edge.getLeftEventType().getIncomingSEQEdges().get(0).toString());
         if (!pool.getPredPools().contains(p_pool)){
             pool.getPredPools().add(p_pool);

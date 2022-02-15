@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-//todo: allow for invalidating rules
 
 public class PruneEngine {
 

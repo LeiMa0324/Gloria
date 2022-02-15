@@ -22,7 +22,7 @@ import java.util.IllegalFormatCodePointException;
 public class Graph {
 
     protected ArrayList<StartNode> startNodes;
-    protected ArrayList<EndNode> endNodes;  //TODO: BUG OF MULTI-STARTS
+    protected ArrayList<EndNode> endNodes;
     protected HashMap<String, Pool> pools;
     protected Template template;
     private ArrayList<Pool> poolArrayList;
@@ -91,7 +91,9 @@ public class Graph {
             return 0;
         }
 
+
         ArrayList<Edge> p_edges = new ArrayList<>();
+
         //if the preceding edge is a self kleene one
         Edge preceding_selfKleeneEdge = currentEdge.getPrecedingSelfKleeneEdge();
 

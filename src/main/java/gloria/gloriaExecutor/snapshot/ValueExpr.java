@@ -185,7 +185,7 @@ public class ValueExpr {
         }
 
         for (Event p_event: p_events){
-            //todo: commented
+
             this.sum(p_event.getValueExprForQuery(qid));
         }
         if (isSumAggregateEvent()){

@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class SnapshotManager {
     private ArrayList<Snapshot> snapshots;
     private Aggregator aggregator;
+    private long snapShotInsertionTime =0;
 
     public SnapshotManager(){
         this.snapshots = new ArrayList<>();
@@ -92,7 +93,12 @@ public class SnapshotManager {
                 Sset sset1 = new Sset();
                 sset1.getQueries().add(qid);
                 Value value = evaluateSnapshotExprsForQuery(event.getValueExprForSset(sset1), qid);
+
+                long start = System.currentTimeMillis();
                 qidToValue.put(qid, value);
+                long end = System.currentTimeMillis();
+                this.snapShotInsertionTime+=(end-start);
+
             }
             snapshot.setQidToValue(qidToValue);
         }
@@ -101,7 +107,10 @@ public class SnapshotManager {
         event.resetExprForSset(sset, snapshot);
         event.getValueExprForSset(sset).setAggregator(this.aggregator);
 
+        long start = System.currentTimeMillis();
         this.snapshots.add(snapshot);
+        long end = System.currentTimeMillis();
+        this.snapShotInsertionTime+=(end-start);
 
     }
 }

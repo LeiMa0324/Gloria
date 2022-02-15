@@ -47,8 +47,11 @@ public class Pool_SinglePred extends Pool {
     }
 
     public int greedyConstruct(){
+        if (this.singlePredPool==null){
+            System.out.println("hh");
+        }
 
-        if (singlePredPool.nodeHash.values().iterator().hasNext()) {
+        if (singlePredPool!=null&&singlePredPool.nodeHash.values().iterator().hasNext()) {
             Node p_node = singlePredPool.nodeHash.values().iterator().next();
 
             //always reuse

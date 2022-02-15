@@ -84,11 +84,11 @@ public class Template {
 
         //flat pattern
         if (Arrays.equals(innerPattern, pattern)){
-            last = parseFlatPattern(p_et,pattern,qid );
+            last = parseFlatPattern(p_et,pattern,qid ,pattern);
         }else {
-            EventType lastOfPrefix = parseFlatPattern(p_et, prefix, qid);
+            EventType lastOfPrefix = parseFlatPattern(p_et, prefix, qid, pattern);
             EventType lastOfInner = recursiveParsePattern(lastOfPrefix, innerPattern, qid);
-            last = parseFlatPattern(lastOfInner, suffix, qid);
+            last = parseFlatPattern(lastOfInner, suffix, qid, pattern);
 
         }
 
@@ -113,7 +113,7 @@ public class Template {
      * @param qid the gloria.query id
      * @return the last event type of the pattern
      */
-    public EventType parseFlatPattern(EventType p_et,String[] flatPattern, int qid){
+    public EventType parseFlatPattern(EventType p_et,String[] flatPattern, int qid, String[] originalPattern){
 
         if (flatPattern==null||flatPattern.length==0){
             return p_et;
@@ -122,6 +122,7 @@ public class Template {
         //temp array for pred
         ArrayList<RealEventType> eventTypes = new ArrayList<>();
 
+        int index = 0;
         for (String e: flatPattern){
             //remove  (, ) or +
             String etName = e.replace("(","").replace(")","").replace("+","" );
@@ -138,13 +139,14 @@ public class Template {
             eventTypes.add(newET);
 
             //maintain the self kleene edge
-            if (e.endsWith("+")&&!e.contains(")")){
+            if (originalPattern[index].endsWith("+")&&!originalPattern[index].contains(")")){
                 newET.addKleeneSuccessor(newET, qid);
             }
 
 
             //add new event type to GloriaOptimizer.template
             this.nameToEventTypes.put(etName, newET);
+            index++;
         }
         //return the last event type
         return eventTypes.get(eventTypes.size()-1);
@@ -177,13 +179,12 @@ public class Template {
             lastString = lastString.substring(0, lastString.length()-1);
         }else {
             if (lastString.endsWith(")+")){
-                lastString = lastString.substring(0, lastString.length()-2)+"+";
+                lastString = lastString.substring(0, lastString.length()-2)+")+";
 
             }
         }
 
         nestedPattern[nestedPattern.length-1] = lastString;
-
 
 
         //find the biggest inner nested pattern (C, D)+
@@ -212,7 +213,6 @@ public class Template {
     }
 
     private Integer getFrequency(String eventTypeName){
-
 
         return FrequencyGetter.get(eventTypeName, this.workload.getSchema().getDatasetName());
 

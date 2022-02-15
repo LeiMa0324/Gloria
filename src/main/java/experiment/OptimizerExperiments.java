@@ -200,7 +200,6 @@ public class OptimizerExperiments {
 
 
 
-                //todo:bug about memory
 
                 String[] data = {queryNum*12+"", K_length+"",Kleene_layers+"", iter+"",
 
@@ -297,5 +296,23 @@ public class OptimizerExperiments {
             e.printStackTrace();
         }
 
+    }
+
+    public static void main(String[] args){
+        OptimizerExperiments experiments = new OptimizerExperiments();
+        experiments.setDataset("bus");
+
+        experiments.SEQ_varyQueryNum();
+        experiments.FullySharedSingleKleene_varyKleeneLength();
+        experiments.FullySharedSingleKleene_varyKleeneLayers();
+        experiments.mixWorkload_varyKRatio();
+
+        OptimizerExperiments experiments1 = new OptimizerExperiments();
+        experiments1.setDataset("taxi");
+//
+        experiments.SEQ_varyQueryNum();
+        experiments.FullySharedSingleKleene_varyKleeneLength();
+        experiments.FullySharedSingleKleene_varyKleeneLayers();
+        experiments1.mixWorkload_varyKRatio();
     }
 }

@@ -53,7 +53,7 @@ public class ExecutorExperiments extends OptimizerExperiments{
 
                         normalTime+"", normalThroughput+"", this.normalSnapshots+"",
                 notshareTime+"", notshareThroughput+""};
-                String logFile = "output/executor/"+dataset+"_varyQueryNum.csv";
+                String logFile = "output/executor/"+dataset+"_varyQueryNum11.csv";
 
                 logging(logFile, header, data);
             }
@@ -72,6 +72,8 @@ public class ExecutorExperiments extends OptimizerExperiments{
         streamLoader loader = new streamLoader(streamFile, schema, analyzer, epw);
         loader.load();
 
+        long insertionTime = 0;
+
         long start = System.currentTimeMillis();
 
         for (Workload seqw : analyzer.getSEQWorkloads().values()) {
@@ -83,6 +85,7 @@ public class ExecutorExperiments extends OptimizerExperiments{
 
             if (type==OptimizerType.NORMAL){
                 this.normalSnapshots +=executor.getSnapshotManager().getSnapshots().size();
+                insertionTime+=executor.getSnapshotManager().getSnapShotInsertionTime();
             }
         }
 
@@ -96,10 +99,13 @@ public class ExecutorExperiments extends OptimizerExperiments{
 
             if (type==OptimizerType.NORMAL){
                 this.normalSnapshots +=executor.getSnapshotManager().getSnapshots().size();
+                insertionTime+=executor.getSnapshotManager().getSnapShotInsertionTime();
             }
         }
 
         long end = System.currentTimeMillis();
+
+        System.out.println("snaposhot insertion time: "+insertionTime);
 
         return end-start;
 
@@ -111,7 +117,7 @@ public class ExecutorExperiments extends OptimizerExperiments{
         writeCSV(file, header, data);
     }
 
-    public static void main(){
+    public static void main(String[] args){
 
         ExecutorExperiments stock_exp = new ExecutorExperiments();
         stock_exp.setDataset("stock");
@@ -125,4 +131,5 @@ public class ExecutorExperiments extends OptimizerExperiments{
         taxi_exp.setDataset("taxi");
         taxi_exp.varyQueryNum();
     }
+
 }

@@ -29,7 +29,7 @@ public class SEQGraph extends Graph {
         for (StartEventType startEventType :this.template.getStarts().values()){
 
             createStartNode(startEventType);
-            //todo: multiple edges
+            //multiple edges
             Edge edge = startEventType.getFirstEventType().getOutgoingEdgesToSuc().values().iterator().next();
             linearRecursiveConstructPool(edge,stopET);
         }

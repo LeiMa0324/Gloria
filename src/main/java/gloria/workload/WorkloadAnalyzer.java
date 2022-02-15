@@ -67,7 +67,6 @@ public class WorkloadAnalyzer {
             KleeneGraph.construct();
             singleW.setGraph(KleeneGraph);
 
-            //todo: path search is wrong with single kleene event type, nothing is shared
             PathSearcher searcher = new PathSearcher();
             singleW.setPath(searcher.pathSearch(KleeneGraph));
             singleW.setMiniCost(searcher.getMinCost());

@@ -21,7 +21,7 @@ public class GloriaVSHamletExperiments {
 
         }
 
-//        varyWorkloadComplexity();
+        varyWorkloadComplexity();
 
 
     }

@@ -43,15 +43,14 @@ public class NoneKleeneEventCountManager extends EventCountManager{
                 }
                 else {
 
-                        //todo:bug here, lastkleene is not necessary the predecessors
                         //assuming one event type only appear in one gloria.query in a template
                         EventType predEventType = Utils.getInstance().getTemplate().getWorkload().
                                 getQueries().get(qid).getPattern().getNoneKleenePredecessor(event.getType());
 
 
-                        //todo:1. find all graphlet of predEventType
+                        //find all graphlet of predEventType
                         ArrayList<Graphlet> predGraphlets = Utils.getInstance().getGraphletManager().getGraphletHashMap().get(predEventType.getName());
-                        //todo:2.  sum them all
+                        //sum them all
 
                         if (predGraphlets!=null){
                             for (Graphlet p_graphlet: predGraphlets){

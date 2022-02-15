@@ -195,7 +195,6 @@ public abstract class Pool {
             return true;
         }else {
 
-            //todo: test!!!!!
 //            if (this.edge.getEdgeQueries().size()>1){
                 return this.edge.getLeftEventType().getFrequency()<sset.getCheckpointNum();
 //            }

@@ -141,7 +141,7 @@ public class SingleKleeneGraph extends Graph {
         }
 
         PruneEngine.nodePrune_SEQ(feedbackPool);
-        //todo:replace pseudo pool
+        //replace pseudo pool
     }
 
     protected void buildNextSEQPools(){
