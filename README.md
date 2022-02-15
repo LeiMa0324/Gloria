@@ -55,15 +55,8 @@ ExecutorExperiments class contains all the experiments of executors
 
 GloriaVSHamletExperiments class contains all the experiments of Gloria vs. Hamlet
 
-## 4.Output
-
-Outputs of experiments are under ~/output/
-
-
-### 4.Execution
-
-simply run the main class in the experiment package, it will run all the optimizer and executor experiments and output the results in the output directory.
-
 In each of these experiments, we run the models varying query num or events per window. For one setting, we run them several iterations and log the results of latency, throughput, memory and other details.
 
 All charts are plotted using the average of iterations.
+
+Outputs of experiments are under ~/output/
